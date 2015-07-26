@@ -1,8 +1,8 @@
- ## Subject ID
+ +## Subject ID
  
  A number 1-30 representing an individual in the study.
  
- ## Activity Name
+ +## Activity Name
  
  A string representing the activity being done. Possible values:
  
@@ -13,7 +13,7 @@
  5. STANDING
  6. LAYING
  
- ## Remaining columns
+ +## Remaining columns
 
  The rest of the columns are means of the following columns from the data set: 
  
