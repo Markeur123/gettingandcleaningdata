@@ -1,16 +1,26 @@
-The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. You will be graded by your peers on a series of yes/no questions related to the project. You will be required to submit: 1) a tidy data set as described below, 2) a link to a Github repository with your script for performing the analysis, and 3) a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. You should also include a README.md in the repo with your scripts. This repo explains how all of the scripts work and how they are connected.  
+## Steps used to get and clean the data  in run_analysis.R
+### 1 - Merge the training and the test sets to create one data set
+* Read in the training and testing into separate sets
+* Use **rbind()** to merge them to create one big data set
 
-One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained: 
+### 2 - Extracts only the measurements on the mean and standard deviation for each measurement
+* Read in **feature names**
+* Use **grepl()** to extract only feature names that have **"mean()"** or **"std()"**
+	* grepl() in this process mistakenly accepts "meanFreq()", so we have to exclude the features whose names contain "meanFreq()"
+* Extract those columns from the big data set along with given column names
+* Read in **subject IDs** and add to each observation 
 
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+### 3 - Use descriptive activity names to name the activities in the data set
+* Read in given activity labels (as **numbers**) and add to each observation
+* Read in activity labels (as **strings**) and match those names with corresponding numbers added from the previous step
+* Refine the activity names (as factor levels) to conform to the **name rules**
+* Sort the data set by **subject ID** and then by **activity name**
 
-Here are the data for the project: 
+### 4 - Appropriately label the data set with descriptive activity names
+* Define a function that programmatically refines the feature names to conform to the **name rules** and make the names **descriptive**
+* Apply the function to the column names of the data set
 
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
-
-You should create one R script called run_analysis.R that does the following. 
-1. Merges the training and the test sets to create one data set.
-2. Extracts only the measurements on the mean and standard deviation for each measurement. 
-3. Uses descriptive activity names to name the activities in the data set
-4. Appropriately labels the data set with descriptive variable names. 
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+### 5 - Create a second, independent tidy data set with the average of each variable for each activity and each subject
+* Create **180 groups (30 subjects * 5 activities)** corresponding to each combination of subject and activity
+* Compute the mean of each feature for each group
+* Add the computed numbers into the new data set, each group corresponds to a row/observation
