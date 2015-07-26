@@ -1,7 +1,7 @@
-###Subject.ID
+###subject ID
 A number 1-30 representing an individual in the study.
 
-###Activity.Name
+###activity name
 A string representing the activity being done. Possible values:
 
 1. WALKING
