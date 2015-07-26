@@ -1,8 +1,8 @@
- ## Subject ID
+ # Subject ID
  
  A number 1-30 representing an individual in the study.
  
- ## Activity Name
+ # Activity Name
  
  A string representing the activity being done. Possible values:
  
