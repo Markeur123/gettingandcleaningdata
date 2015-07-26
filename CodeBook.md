@@ -1,19 +1,17 @@
- ## Subject ID
+###Subject.ID
+A number 1-30 representing an individual in the study.
+
+###Activity.Name
+A string representing the activity being done. Possible values:
+
+1. WALKING
+2. WALKING_UPSTAIRS
+3. WALKING_DOWNSTAIRS
+4. SITTING
+5. STANDING
+6. LAYING
  
- A number 1-30 representing an individual in the study.
- 
- ## Activity Name
- 
- A string representing the activity being done. Possible values:
- 
- 1. WALKING
- 2. WALKING_UPSTAIRS
- 3. WALKING_DOWNSTAIRS
- 4. SITTING
- 5. STANDING
- 6. LAYING
- 
- ## Remaining columns
+###Remaining columns
 
  The rest of the columns are means of the following columns from the data set: 
  
